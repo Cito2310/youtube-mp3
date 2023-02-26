@@ -1,3 +1,7 @@
+import { TitleApp } from "./components/TitleApp";
+
+import "./styles/app-styles.scss"
+
 function App() {
   const onClickBasicIpcOn = () => {
     window.electronAPI.basicOnIpc("hello world")
@@ -9,6 +13,7 @@ function App() {
 
   return (
     <div className="App">
+      <TitleApp/>
       <button onClick={onClickBasicIpcOn}>test basic ipc on</button>
       <button onClick={onClickBasicIpcHandle}>test basic ipc handle</button>
     </div>
