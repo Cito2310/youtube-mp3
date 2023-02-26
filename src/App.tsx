@@ -1,3 +1,4 @@
+import { InputYoutubeLink } from "./components/InputYoutubeLink";
 import { TitleApp } from "./components/TitleApp";
 
 import "./styles/app-styles.scss"
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <TitleApp/>
+      <InputYoutubeLink/>
       <button onClick={onClickBasicIpcOn}>test basic ipc on</button>
       <button onClick={onClickBasicIpcHandle}>test basic ipc handle</button>
     </div>

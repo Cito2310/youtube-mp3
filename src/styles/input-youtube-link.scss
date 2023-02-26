@@ -1,0 +1,42 @@
+.section-input-youtube-link {
+    // Var
+    $white-color: #f3f3f3;
+    $red-color: #ff1919;
+    $border-color: #c40000;
+
+    background-color: $red-color;
+    color: $white-color;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    
+    .fa-brands {
+        font-size: 2em;
+        margin-right: 0.2em;
+    }
+    
+    input {
+        background-color: $white-color;
+        border-radius: 6px 0 0 6px;
+        border-right: 0px;
+        border: 1px $border-color solid;
+        color: #1a1a1a;
+        padding: 4px 8px;
+        width: 24em;
+    }
+
+    button {
+        background-color: #ff0000;
+        border-left: 0px;
+        border-radius: 0 6px 6px 0;
+        border: 1px $border-color solid;
+        cursor: pointer;
+        padding: 0 0.8em;
+        transition: background-color 0.2s;
+
+        &:hover { background-color: #ec0000 }
+        &:active { background-color: #c40000 }
+
+        i {font-size: 1.3em;}
+    }
+}
