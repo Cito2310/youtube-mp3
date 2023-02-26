@@ -18,8 +18,8 @@
     input {
         background-color: $white-color;
         border-radius: 6px 0 0 6px;
-        border-right: 0px;
         border: 1px $border-color solid;
+        border-right: 0px;
         color: #1a1a1a;
         padding: 4px 8px;
         width: 24em;
@@ -27,9 +27,9 @@
 
     button {
         background-color: #ff0000;
-        border-left: 0px;
         border-radius: 0 6px 6px 0;
         border: 1px $border-color solid;
+        border-left: 0px;
         cursor: pointer;
         padding: 0 0.8em;
         transition: background-color 0.2s;
