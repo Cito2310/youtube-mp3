@@ -4,20 +4,15 @@ import { TitleApp } from "./components/TitleApp";
 import "./styles/app-styles.scss"
 
 function App() {
-  const onClickBasicIpcOn = () => {
-    window.electronAPI.basicOnIpc("hello world")
-  }
-
-  const onClickBasicIpcHandle = async() => {
-    console.log(await window.electronAPI.basicHandleIpc("hello world"))
+  const onSetMusicFolder = async() => {
+    console.log( await window.electronAPI.onSetMusicFolder())
   }
 
   return (
     <div className="App">
       <TitleApp/>
       <InputYoutubeLink/>
-      <button onClick={onClickBasicIpcOn}>test basic ipc on</button>
-      <button onClick={onClickBasicIpcHandle}>test basic ipc handle</button>
+      <button onClick={onSetMusicFolder}>Hola 231023</button>
     </div>
   );
 }

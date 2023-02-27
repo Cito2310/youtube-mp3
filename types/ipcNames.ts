@@ -1,3 +1,2 @@
 export type ipcNames = 
-    "basic-on-ipc" |
-    "basic-handle-ipc" 
+    "on-set-music-folder" 
