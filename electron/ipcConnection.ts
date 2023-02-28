@@ -17,7 +17,7 @@ export const ipConnection = () => {
     //     return args
     // })
 
-    ipcMain.handle("on-get-config" as ipcNames, (e, url)=>{
+    ipcMain.handle("on-get-config" as ipcNames, async(e, url)=>{
         const config: IConfig = JSON.parse( readFileSync("./data/config.json", {encoding: "utf-8"}) );
         return config
     })

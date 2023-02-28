@@ -1,14 +1,15 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState } from "react";
 import { InputYoutubeLink } from "./components/InputYoutubeLink";
 import { TitleApp } from "./components/TitleApp";
 
 import "./styles/app-styles.scss"
 
 function App() {
-  useLayoutEffect(() => {
-    window.electronAPI.onGetConfig;
-  
-  }, [])
+  const [config, setConfig] = useState({})
+
+  // add config app
+  const asyncGetConfig = async() => { setConfig( await window.electronAPI.onGetConfig() )}
+  useLayoutEffect(() => { asyncGetConfig() }, [])
 
   const onSetMusicFolder = async() => {
     console.log( await window.electronAPI.onSetMusicFolder())
@@ -22,6 +23,7 @@ function App() {
   }
   
   const onGetInfoYoutube = async() => {
+    console.log( config )
     // console.log( await window.electronAPI.onDowloadYoutube(["https://www.youtube.com/watch?v=X523mel6aIo", config]))
     console.log( await window.electronAPI.onGetInfoYoutube("https://www.youtube.com/watch?v=jo4tUr-zUmU"))
     // console.log( await window.electronAPI.onDowloadYoutube("https://www.youtube.com/watch?v=vg2OAbOA79M"))
