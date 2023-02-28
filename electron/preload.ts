@@ -9,4 +9,5 @@ contextBridge.exposeInMainWorld('electronAPI', {
     onSetMusicFolder: () => ipcRenderer.invoke('on-set-music-folder' as ipcNames),
     onDownloadYoutube: ( url: string ) => ipcRenderer.invoke('on-download-youtube' as ipcNames, url),
     onGetInfoYoutube: ( url: string ) => ipcRenderer.invoke('on-get-info-youtube' as ipcNames, url),
+    onGetConfig: () => ipcRenderer.invoke('on-get-config' as ipcNames),
 })

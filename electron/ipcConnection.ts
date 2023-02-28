@@ -17,6 +17,11 @@ export const ipConnection = () => {
     //     return args
     // })
 
+    ipcMain.handle("on-get-config" as ipcNames, async(e, url)=>{
+        const config: IConfig = JSON.parse( readFileSync("./data/config.json", {encoding: "utf-8"}) );
+        return config
+    })
+
     ipcMain.handle("on-get-info-youtube" as ipcNames, async(e, url)=>{
         // get data video
         const info: ytdl.videoInfo = await ytdl.getBasicInfo(url);
