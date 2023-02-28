@@ -1,9 +1,15 @@
+import { useLayoutEffect } from "react";
 import { InputYoutubeLink } from "./components/InputYoutubeLink";
 import { TitleApp } from "./components/TitleApp";
 
 import "./styles/app-styles.scss"
 
 function App() {
+  useLayoutEffect(() => {
+    window.electronAPI.onGetConfig;
+  
+  }, [])
+
   const onSetMusicFolder = async() => {
     console.log( await window.electronAPI.onSetMusicFolder())
   }
