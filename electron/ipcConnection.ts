@@ -33,12 +33,13 @@ export const ipConnection = () => {
         // create object info video
         const parseInfo: IInfoYoutube = {
             author: videoDetails.ownerChannelName,
+            bytes: Number(bytesVideo),
             description: videoDetails.description,
             lengthSeconds: Number(videoDetails.lengthSeconds),
             thumbnails: videoDetails.thumbnails[3].url,
+            title: videoDetails.title,
             uploadDate: videoDetails.publishDate,
             url: videoDetails.video_url,
-            bytes: Number(bytesVideo)
         }
 
         // return parseInfo
