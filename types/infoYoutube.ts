@@ -5,4 +5,5 @@ export interface IInfoYoutube {
     thumbnails: string,
     uploadDate: string,
     url: string,
+    bytes: number,
 }

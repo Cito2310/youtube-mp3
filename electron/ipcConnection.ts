@@ -19,7 +19,11 @@ export const ipConnection = () => {
 
     ipcMain.handle("on-get-info-youtube" as ipcNames, async(e, url)=>{
         // get data video
-        const {videoDetails}: ytdl.videoInfo = await ytdl.getBasicInfo(url);
+        const info: ytdl.videoInfo = await ytdl.getBasicInfo(url);
+        const { videoDetails, formats } = info;
+
+        // get bytes video
+        const bytesVideo = formats.filter( object => /audio/.test(object.mimeType || ""))[0].contentLength;
 
         // create object info video
         const parseInfo: IInfoYoutube = {
@@ -28,10 +32,11 @@ export const ipConnection = () => {
             lengthSeconds: Number(videoDetails.lengthSeconds),
             thumbnails: videoDetails.thumbnails[3].url,
             uploadDate: videoDetails.publishDate,
-            url: videoDetails.video_url
+            url: videoDetails.video_url,
+            bytes: Number(bytesVideo)
         }
 
-        // return info
+        // return parseInfo
         return parseInfo;
     })
 
