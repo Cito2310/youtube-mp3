@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from "react";
 import { InputYoutubeLink } from "./components/InputYoutubeLink";
-import { TitleApp } from "./components/TitleApp";
+import { TopBar } from "./components/TopBar";
 
 import "./styles/app-styles.scss"
 
@@ -32,8 +32,9 @@ function App() {
 
   return (
     <div className="App">
-      <TitleApp/>
-      <InputYoutubeLink/>
+      <TopBar/>
+      {/* <TitleApp/> */}
+      {/* <InputYoutubeLink/> */}
       <button onClick={onSetMusicFolder}>Set Music Folder</button>
       <hr/>
       <button onClick={onDowloadYoutube}>Dowload video</button>
