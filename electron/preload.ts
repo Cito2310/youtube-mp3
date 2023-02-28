@@ -7,5 +7,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     // basicOnIpc: ( value: string ) => ipcRenderer.send('basic-on-ipc' as ipcNames, value),
     // basicHandleIpc: ( value: string ) => ipcRenderer.invoke('basic-handle-ipc' as ipcNames, value)
     onSetMusicFolder: () => ipcRenderer.invoke('on-set-music-folder' as ipcNames),
-    onDownloadYoutube: ( url: string ) => ipcRenderer.invoke('on-download-youtube' as ipcNames, url)
+    onDownloadYoutube: ( url: string ) => ipcRenderer.invoke('on-download-youtube' as ipcNames, url),
+    onGetInfoYoutube: ( url: string ) => ipcRenderer.invoke('on-get-info-youtube' as ipcNames, url),
 })

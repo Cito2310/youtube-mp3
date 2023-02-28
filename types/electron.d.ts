@@ -5,6 +5,7 @@ declare global {
             // basicHandleIpc: ( value: string ) => unknown,
             onSetMusicFolder: () => string,
             onDownloadYoutube: (url: string) => unknown,
+            onGetInfoYoutube: (url: string) => unknown,
         }
     }
 }

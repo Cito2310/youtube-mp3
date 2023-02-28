@@ -5,6 +5,7 @@ import * as ytdl from "ytdl-core"
 
 import { IConfig } from '../types/config';
 import { ipcNames } from '../types/ipcNames';
+import { IInfoYoutube } from '../types/infoYoutube';
 
 export const ipConnection = () => {
 
@@ -15,6 +16,24 @@ export const ipConnection = () => {
     // ipcMain.handle("basic-handle-ipc" as ipcNames, async(e, args)=>{
     //     return args
     // })
+
+    ipcMain.handle("on-get-info-youtube" as ipcNames, async(e, url)=>{
+        // get data video
+        const {videoDetails}: ytdl.videoInfo = await ytdl.getBasicInfo(url);
+
+        // create object info video
+        const parseInfo: IInfoYoutube = {
+            author: videoDetails.ownerChannelName,
+            description: videoDetails.description,
+            lengthSeconds: Number(videoDetails.lengthSeconds),
+            thumbnails: videoDetails.thumbnails[3].url,
+            uploadDate: videoDetails.publishDate,
+            url: videoDetails.video_url
+        }
+
+        // return info
+        return parseInfo;
+    })
 
     ipcMain.handle("on-download-youtube" as ipcNames, async(e, url)=>{
         // get data config
