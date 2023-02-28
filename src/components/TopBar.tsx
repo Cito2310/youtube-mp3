@@ -1,6 +1,17 @@
-import "../styles/section-topbar.scss"
+import "../styles/section-topbar.scss";
 
-export const TopBar = () => {
+import { IConfig } from '../../types/config';
+import { useForm } from '../hooks/useForm';
+
+interface props {
+    config: IConfig | {},
+    onGetInfoYoutube: (url: string) => void
+}
+
+export const TopBar = ({ config, onGetInfoYoutube }: props) => {
+    // useForm || url
+    const { url, onInputChange } = useForm({ url: "" })
+
     return (
         <nav className="section-topbar">
             <div className="container-title-config">
@@ -18,10 +29,13 @@ export const TopBar = () => {
 
             <div className="container-input-link">
                 <input 
-                    type="text"
+                    name="url"
+                    onChange={onInputChange}
                     placeholder="https://www.youtube.com/watch?v=jNQXAC9IVRw"
+                    type="text"
+                    value={url}
                 />
-                <button>
+                <button onClick={()=>{onGetInfoYoutube(url)}} >
                     <i className="fa-solid fa-arrow-down"></i>
                 </button>
             </div>
