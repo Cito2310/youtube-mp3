@@ -1,5 +1,5 @@
 import { dialog, ipcMain } from 'electron';
-import { existsSync, readFileSync, writeFileSync } from "fs";
+import { existsSync, readFileSync, writeFileSync, readdirSync, mkdirSync } from 'fs';
 import path = require('path');
 
 import { ipcNames } from '../types/ipcNames';
@@ -42,6 +42,9 @@ export const ipConnection = () => {
             let config: IConfig = {
                 musicFolder: filePaths[0]
             }
+
+            // check exist directory data
+            if ( !existsSync("./data") ) mkdirSync("./data");
 
             // save config file
             writeFileSync("./data/config.json", JSON.stringify( config ));
