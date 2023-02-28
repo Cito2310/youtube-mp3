@@ -1,7 +1,7 @@
 {
   "homepage": "./",
   "name": "youtube-mp3",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "",
   "description": "",
   "keywords": [
@@ -20,7 +20,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
-    "sass": "^1.58.3"
+    "sass": "^1.58.3",
+    "ytdl-core": "^4.11.2"
   },
   "scripts": {
     "dev": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://127.0.0.1:3000 && tsc -p electron -w\" \"wait-on http://127.0.0.1:3000 && tsc -p electron && electron .\"",

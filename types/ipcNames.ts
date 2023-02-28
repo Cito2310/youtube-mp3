@@ -1,2 +1,3 @@
 export type ipcNames = 
-    "on-set-music-folder" 
+    "on-set-music-folder" |
+    "on-dowload-youtube"

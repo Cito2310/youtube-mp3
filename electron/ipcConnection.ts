@@ -1,9 +1,10 @@
 import { dialog, ipcMain } from 'electron';
-import { existsSync, readFileSync, writeFileSync, readdirSync, mkdirSync } from 'fs';
-import path = require('path');
+import { existsSync, readFileSync, writeFileSync, mkdirSync, createWriteStream } from 'fs';
+import * as path from 'path';
+import * as ytdl from "ytdl-core"
 
-import { ipcNames } from '../types/ipcNames';
 import { IConfig } from '../types/config';
+import { ipcNames } from '../types/ipcNames';
 
 export const ipConnection = () => {
 
@@ -14,6 +15,19 @@ export const ipConnection = () => {
     // ipcMain.handle("basic-handle-ipc" as ipcNames, async(e, args)=>{
     //     return args
     // })
+
+    ipcMain.handle("on-dowload-youtube" as ipcNames, async(e, url)=>{
+        const config: IConfig = JSON.parse( readFileSync("./data/config.json", {encoding: "utf-8"}) );
+
+        const info: ytdl.videoInfo = await ytdl.getBasicInfo(url);
+        const titleVideo = info.videoDetails.title;
+        const parseTitleVideo = titleVideo.slice(0, 32).split(" ").join("_");
+        
+        const routeFolder = path.join( config.musicFolder, `${parseTitleVideo}.mp3` )
+
+        ytdl(url, { filter: 'audioonly' })
+            .pipe(createWriteStream(routeFolder))
+    })
 
     ipcMain.handle("on-set-music-folder" as ipcNames, async (e, args) => {
         const { canceled, filePaths } = await dialog.showOpenDialog({ 
