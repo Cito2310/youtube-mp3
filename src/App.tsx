@@ -10,7 +10,7 @@ function App() {
 
   const onDowloadYoutube = async() => {
     // console.log( await window.electronAPI.onDowloadYoutube(["https://www.youtube.com/watch?v=X523mel6aIo", config]))
-    console.log( await window.electronAPI.onDowloadYoutube("https://www.youtube.com/watch?v=jo4tUr-zUmU"))
+    console.log( await window.electronAPI.onDownloadYoutube("https://www.youtube.com/watch?v=jo4tUr-zUmU"))
     // console.log( await window.electronAPI.onDowloadYoutube("https://www.youtube.com/watch?v=vg2OAbOA79M"))
     // console.log( await window.electronAPI.onDowloadYoutube("https://www.youtube.com/watch?v=Cd67Is0qXNE"))
   }

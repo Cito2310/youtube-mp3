@@ -16,15 +16,19 @@ export const ipConnection = () => {
     //     return args
     // })
 
-    ipcMain.handle("on-dowload-youtube" as ipcNames, async(e, url)=>{
+    ipcMain.handle("on-download-youtube" as ipcNames, async(e, url)=>{
+        // get data config
         const config: IConfig = JSON.parse( readFileSync("./data/config.json", {encoding: "utf-8"}) );
 
+        // get title video
         const info: ytdl.videoInfo = await ytdl.getBasicInfo(url);
         const titleVideo = info.videoDetails.title;
         const parseTitleVideo = titleVideo.slice(0, 32).split(" ").join("_");
         
+        // get route dowload and new file
         const routeFolder = path.join( config.musicFolder, `${parseTitleVideo}.mp3` )
 
+        // dowload and create new 
         ytdl(url, { filter: 'audioonly' })
             .pipe(createWriteStream(routeFolder))
     })
