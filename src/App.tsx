@@ -1,5 +1,6 @@
 import { useLayoutEffect, useState } from "react";
 import { TopBar } from "./components/TopBar";
+import { VideoInfo } from "./components/VideoInfo";
 
 import "./styles/app-styles.scss"
 
@@ -39,6 +40,11 @@ function App() {
         config={config}
         onGetInfoYoutube={onGetInfoYoutube}
       />
+
+      { 
+        Object.keys(selectVideoInfo).length === 0 ? null :
+        <VideoInfo info={selectVideoInfo as IInfoYoutube}/>
+      }
       {/* <TitleApp/> */}
       {/* <InputYoutubeLink/> */}
       {/* <button onClick={onSetMusicFolder}>Set Music Folder</button>

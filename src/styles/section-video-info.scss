@@ -1,0 +1,43 @@
+.section-video {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 2em;
+}
+
+.container-video-info {
+    h2, h3, p {all: unset}
+    
+    display: flex;
+    gap: 0.6em;
+
+    img {
+        height: 11em;
+    }
+
+    .container-info {
+        h2 {
+            font-size: 1.6em;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            font-weight: 500;
+        }
+    }
+
+    .flex-column {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.btn-download {
+    margin-top: 0.6em;
+    background-color: blue;
+    color: white;
+    padding: 0.6em;
+    text-align: center;
+    border-radius: 6px;
+}
